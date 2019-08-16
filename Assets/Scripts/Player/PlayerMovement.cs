@@ -15,19 +15,16 @@ public class PlayerMovement : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-
+        Debug.Log (transform.rotation.z);
         //Movimiento hacia arriba del cañon
-        if (Input.GetKey (KeyCode.W)) {
+        if (Input.GetKey (KeyCode.W) && transform.rotation.z < 0.25) {
             speed = 0.2f;
             Quaternion temp = transform.rotation;
             temp.z += speed * Time.deltaTime;
             transform.rotation = temp;
-            if (transform.rotation.z >= 45) {
-                speed = 0;
-            }
         }
         //Movimiento hacia abajo del cañon
-        if (Input.GetKey (KeyCode.S)) {
+        if (Input.GetKey (KeyCode.S) && transform.rotation.z > -0.25) {
             speed = -0.2f;
             Quaternion temp = transform.rotation;
             temp.z += speed * Time.deltaTime;
