@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class PlayerAtributes : MonoBehaviour{
 
-
-
-    // Start is called before the first frame update
-    void Start(){
-        
-    }
-
-    // Update is called once per frame
-    void Update(){
-        
-    }
+    // Atributos por ser manipulados por progresión del juego
+    int attribHP;
+    int attribATK;
+    int attribDEF;
+    
 }
