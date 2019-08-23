@@ -26,6 +26,6 @@ public class BulletGenerator : MonoBehaviour {
     void GenerateBullet() {
         Debug.Log("PUM!");
         GameObject bullet = Instantiate(BulletPrefab, position, Quaternion.identity);
-        bullet.GetComponent<LinealBullet>().direction = 
+        bullet.GetComponent<LinealBullet>().direction = transform.up;
     }
 }
