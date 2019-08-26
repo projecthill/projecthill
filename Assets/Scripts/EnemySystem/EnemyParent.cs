@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyParent : MonoBehaviour
 {
-    public float hitPoints = 100f; //variable de puntos de vida de cada enemigo
+    public int health = 10; //variable de puntos de vida de cada enemigo
     public Vector3 direction = Vector3.left; //dirección en la que se mueven los enemigos
     public float movementSpeed = 10f; //variable de ratio de movimiento de cada enemigo
     public float damageAmount = 10f; //variable de ratio de daño de cada enemigo le hará a la torre
@@ -19,5 +19,15 @@ public class EnemyParent : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TakeDamage(int damage) //función daño recibido por enemigos, se resta el daño hecho por las balas de los puntos de vida del enemigo. Si los puntos de vida llegan a 0 el enemigo es destruído
+    {
+        health -= damage;
+        
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
