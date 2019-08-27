@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyParent : MonoBehaviour
 {
     public int health = 10; //variable de puntos de vida de cada enemigo
-    public Vector3 direction = Vector3.left; //dirección en la que se mueven los enemigos
-    public float movementSpeed = 10f; //variable de ratio de movimiento de cada enemigo
-    public float damageAmount = 10f; //variable de ratio de daño de cada enemigo le hará a la torre
+    public int enemyDirection = 1; //dirección en la que se mueven los enemigos
+    public float enemySpeed = 10f; //variable de ratio de movimiento de cada enemigo
+    public float enemyDamage = 10f; //variable de ratio de daño de cada enemigo le hará a la torre
 
     // Start is called before the first frame update
     void Start()
