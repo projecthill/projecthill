@@ -19,7 +19,7 @@ public class LinealBullet : MonoBehaviour{
         transform.Translate(direction * speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D (Collider2D other)
+    void OnTriggerEnter2D (Collider2D other) //destruye a un enemigo al tener contacto con él
     {
         if (other.CompareTag("Enemy"))
         {

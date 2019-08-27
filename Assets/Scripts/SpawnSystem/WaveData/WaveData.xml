@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Waves>
+  <WaveData startTime="3" timer="3.2" timeDelta="0.1">
+    <enemies>
+      <enemy>RegularEnemy</enemy>
+      <enemy>RegularEnemy</enemy>
+      <enemy>RegularEnemy</enemy>
+      <enemy>RegularEnemy</enemy>
+      <enemy>RegularEnemy</enemy>
+    </enemies>
+  </WaveData>
+</Waves>
