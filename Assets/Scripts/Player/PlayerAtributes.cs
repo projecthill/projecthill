@@ -5,8 +5,16 @@ using UnityEngine;
 public class PlayerAtributes : MonoBehaviour{
 
     // Atributos por ser manipulados por progresión del juego
-    int attribHP;
+    int attribHP = 10;
     int attribATK;
     int attribDEF;
-    
+
+    void OnTriggerEnter2D (Collider2D other) //enemigos desaparecerán al colisionar con la torre
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
 }
