@@ -9,12 +9,6 @@ public class PlayerAtributes : MonoBehaviour{
     int attribATK;
     int attribDEF;
 
-    void OnTriggerEnter2D (Collider2D other) //enemigos desaparecerán al colisionar con la torre
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
+  
 
 }

@@ -4,9 +4,14 @@
     <enemies>
       <enemy>RegularEnemy</enemy>
       <enemy>RegularEnemy</enemy>
-      <enemy>RegularEnemy</enemy>
-      <enemy>RegularEnemy</enemy>
-      <enemy>RegularEnemy</enemy>
+      </enemies>
+  </WaveData>
+  <WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy</enemy>
+      <enemy>StrongEnemy</enemy>
+      <enemy>FlyingEnemy</enemy>
+      <enemy>FastEnemy</enemy>
     </enemies>
   </WaveData>
 </Waves>

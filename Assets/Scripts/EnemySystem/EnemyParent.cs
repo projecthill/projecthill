@@ -12,7 +12,7 @@ public class EnemyParent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(8, 9);
+        
     }
 
     // Update is called once per frame
@@ -20,6 +20,16 @@ public class EnemyParent : MonoBehaviour
     {
         
     }
+
+    void OnTriggerEnter2D(Collider2D other) //enemigos se destruyen al colisionar con la torre
+    {
+        if (other.CompareTag("Turret"))
+        {
+            Debug.Log("colisionó con la torre");
+            Destroy(gameObject);
+        }
+    }
+
 
     public void TakeDamage(int damage) //función daño recibido por enemigos, se resta el daño hecho por las balas de los puntos de vida del enemigo. Si los puntos de vida llegan a 0 el enemigo es destruído
     {
