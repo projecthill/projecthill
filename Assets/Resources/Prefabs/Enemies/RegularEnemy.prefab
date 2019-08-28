@@ -99,10 +99,14 @@ MonoBehaviour:
   enemyDirection: 1
   enemySpeed: 1
   enemyDamage: 10
+<<<<<<< HEAD
   pathPoints:
   - {x: 8.5, y: -3, z: 0}
   - {x: 4, y: -3, z: 0}
   - {x: -5, y: -3, z: 0}
+=======
+  pathPoints: []
+>>>>>>> 29f72796b30e8f266510743c8e883b9a54adbc83
 --- !u!61 &2916357495841328507
 BoxCollider2D:
   m_ObjectHideFlags: 0
