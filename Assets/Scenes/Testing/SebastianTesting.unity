@@ -710,8 +710,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 2156909876271771851, guid: bad4a784930387346b31cc755ff169cc,
     type: 3}
-  fireRate: 2
-  cooldownTimer: 0
+  BulletSpace: 0.2
+  CoolDown: 1
   isOnCooldown: 0
 --- !u!1 &2010859739
 GameObject:
