@@ -10,7 +10,10 @@ public class BulletGenerator : MonoBehaviour{
     public bool isOnCooldown;
     public Vector2 position { get { return transform.position; } }
 
-
+    public bool withNormalWeapon = true;
+    public bool withGrenadeLauncher;
+    public bool withRPG;
+    public bool withTrapLauncher;
 
     // Start is called before the first frame update
     void Start (){
@@ -19,26 +22,24 @@ public class BulletGenerator : MonoBehaviour{
 
     // Update is called once per frame
     void Update (){
-        if (isOnCooldown == false) {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        if (isOnCooldown == false) {//Permite o impide disparar
             if (Input.GetKeyDown (KeyCode.Space)) {
                 isOnCooldown = true;
                 StartCoroutine (Burst ());
             }
         }
-        /*if (isOnCooldown == true) {
-            StartCoroutine (CoolingDown ());
-            
-        }*/
     }
 
 
-    void GenerateBullet (){
+    void GenerateBullet (){//Genera la bala y le da direccion
         Debug.Log ("PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
     }
 
-    IEnumerator Burst (){
+    IEnumerator Burst (){//Rafaga de disparo
         GenerateBullet ();
         yield return new WaitForSeconds (BulletSpace);
         GenerateBullet ();
@@ -47,7 +48,10 @@ public class BulletGenerator : MonoBehaviour{
         
         StartCoroutine (CoolingDown ());
     }
-    IEnumerator CoolingDown (){
+
+
+
+    IEnumerator CoolingDown (){//Cooldown del disparo
         yield return new WaitForSeconds (CoolDown);
         isOnCooldown = false;
     }

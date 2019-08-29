@@ -2,17 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBullet : MonoBehaviour
-{
+public class FallingBullet : MonoBehaviour{
+    public int speed = 2;
+    public Vector3 direction = Vector3.right;
+
+    public int damage = 10; //valor de daño de esta bala
+
+    public Vector2 position;
+    public GameObject ExplosionPrefab;
+
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start (){
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update (){ //Movimiento y deteccion de posicion de la bala
+        transform.Translate (direction * speed * Time.deltaTime);
+        position = transform.position;
+    }
+
+    void OnTriggerEnter2D (Collider2D other){//destruye a un enemigo al tener contacto con él
+
+        if (other.CompareTag ("Enemy")) {
+            Destroy (other.gameObject);
+            
+        }
+
+        if (gameObject.CompareTag ("Grenade") && (other.CompareTag ("Enemy") || other.CompareTag ("Floor"))) {//Detecta colisiones y empieza la explosion
+            Explode ();
+            Destroy (gameObject);
+        }
+
+    }
+    void Explode (){//Genera el area de explosion
+        Debug.Log ("KABOOOM!!!!");
+        GameObject explosion = Instantiate (ExplosionPrefab, position, Quaternion.identity);
+
     }
 }
