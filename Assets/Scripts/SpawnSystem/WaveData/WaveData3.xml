@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Waves>
+  <WaveData startTime="3" timer="3.2" timeDelta="0.1">
+    <enemies>
+      <enemy>FlyingEnemy</enemy>
+          </enemies>
+  </WaveData>
+  <WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FlyingEnemy</enemy>
+     </enemies>
+  </WaveData>
+</Waves>

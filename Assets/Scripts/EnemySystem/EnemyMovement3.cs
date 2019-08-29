@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegularEnemy : EnemyParent
+public class EnemyMovement3 : EnemyParent
 {
     int currentPathIndex = 0; //orden de puntos de movimiento
     public Vector3[] pathPoints; //array de puntos por los que se mueve el enemigo
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,7 +22,12 @@ public class RegularEnemy : EnemyParent
         }
     }
 
-  
-
-
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        for (int i = 0; i < pathPoints.Length; i++)
+        {
+            Gizmos.DrawSphere(pathPoints[i], 0.2f);
+        }
+    }
 }

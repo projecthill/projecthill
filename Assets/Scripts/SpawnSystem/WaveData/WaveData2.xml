@@ -2,16 +2,16 @@
 <Waves>
   <WaveData startTime="3" timer="3.2" timeDelta="0.1">
     <enemies>
-      <enemy>RegularEnemy1</enemy>
-      <enemy>RegularEnemy1</enemy>
+      <enemy>RegularEnemy2</enemy>
+      <enemy>RegularEnemy2</enemy>
       </enemies>
   </WaveData>
   <WaveData startTime="10" timer="3.2" timeDelta="-0.1">
     <enemies>
-      <enemy>FastEnemy1</enemy>
-      <enemy>StrongEnemy1</enemy>
-      <enemy>StrongEnemy1</enemy>
-      <enemy>FastEnemy1</enemy>
+      <enemy>FastEnemy2</enemy>
+      <enemy>StrongEnemy2</enemy>
+      <enemy>StrongEnemy2</enemy>
+      <enemy>FastEnemy2</enemy>
     </enemies>
   </WaveData>
 </Waves>
