@@ -23,6 +23,18 @@ public class LinealBullet : MonoBehaviour{
     }
 
     void OnTriggerEnter2D (Collider2D other){//destruye a un enemigo al tener contacto con él
+        EnemyParent enemy = other.gameObject.GetComponent<EnemyParent> ();
+        if (enemy) {
+            switch (gameObject.tag) {
+                case "Untagged":
+                    enemy.TakeDamage (2);
+                    break;
+                case "Grenade":
+                    enemy.TakeDamage (10);
+                    break;
+            }
+        }
+
         if (other.CompareTag ("Enemy") || other.CompareTag ("Floor")) {//Detecta colisiones y empieza la explosion
             if (gameObject.CompareTag ("Grenade")) {
                 Explode ();
