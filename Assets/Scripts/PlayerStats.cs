@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int Money;
+    public static int money;
     public int startMoney = 400;
 
-    public static int Lives;
+    public static int lives;
     public int startLives = 20;
 
     public static int Rounds;
@@ -16,8 +16,8 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
 
-        Money = startMoney;
-        Lives = startLives;
+        money = startMoney;
+        lives = startLives;
 
         Rounds = 0;
 
