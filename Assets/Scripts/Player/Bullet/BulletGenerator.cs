@@ -11,6 +11,8 @@ public class BulletGenerator : MonoBehaviour{
     public bool isOnCooldown;
     public Vector2 position { get { return transform.position; } }
 
+    public List<Sprite> bulletSprites;
+
     public bool withNormalWeapon = true;
     /*public bool withGrenadeLauncher;
     public bool withRPG;
@@ -60,15 +62,19 @@ public class BulletGenerator : MonoBehaviour{
         Debug.Log ("PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
     }
-    void GenerateFallingBullet ()
-    {
+    void GenerateFallingBullet (){
         Debug.Log ("BIG PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 10;
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
         bullet.tag = "Grenade";
+    }
+    void GenerateRPGBullet (){
+
     }
     /*void GenerateFallingBullet ()
     {//Genera la bala y le da direccion
