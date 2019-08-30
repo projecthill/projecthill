@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2827232764275290200}
   - component: {fileID: 4726398141188951811}
   - component: {fileID: 2707278785495036140}
+  - component: {fileID: 7491164036224025847}
   m_Layer: 0
   m_Name: NormalBullet
   m_TagString: Untagged
@@ -96,6 +97,9 @@ MonoBehaviour:
   speed: 2
   direction: {x: 1, y: 0, z: 0}
   damage: 10
+  position: {x: 0, y: 0}
+  ExplosionPrefab: {fileID: 6263081727224474032, guid: 49fe097a6de34be4d9d42db6189b31fc,
+    type: 3}
 --- !u!58 &2707278785495036140
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,3 +116,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.03125
+--- !u!50 &7491164036224025847
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002474800754054155}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
