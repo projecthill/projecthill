@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ProgressBar : MonoBehaviour
 {
-    public Slider TotalPeople;
+    public Slider totalPeople;
     public float progress;
 
     // Start is called before the first frame update
@@ -14,8 +14,8 @@ public class ProgressBar : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        TotalPeople.value = progress;
-        TotalPeople.maxValue = 100f;
-        TotalPeople.minValue = 0f;
+        totalPeople.value = progress;
+        totalPeople.maxValue = 100f;
+        totalPeople.minValue = 0f;
     }
 }
