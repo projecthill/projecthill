@@ -157,6 +157,8 @@ MonoBehaviour:
   enemyDirection: 1
   enemySpeed: 1
   enemyDamage: 10
+  explosion: {fileID: 7074139608081626303, guid: c0874327008551b429bec4b510ae597d,
+    type: 3}
   pathPoints:
   - {x: 8, y: -2.8, z: 0}
   - {x: -5, y: -2.8, z: 0}

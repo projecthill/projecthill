@@ -9,6 +9,8 @@ public class EnemyParent : MonoBehaviour
     public float enemySpeed = 10f; //variable de ratio de movimiento de cada enemigo
     public float enemyDamage = 10f; //variable de ratio de daño de cada enemigo le hará a la torre
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,7 @@ public class EnemyParent : MonoBehaviour
         if (other.CompareTag("Turret"))
         {
             Debug.Log("colisionó con la torre");
-            Destroy(gameObject);
+            Explode();
         }
     }
 
@@ -37,7 +39,13 @@ public class EnemyParent : MonoBehaviour
         
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Explode();
         }
+    }
+
+    void Explode()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
