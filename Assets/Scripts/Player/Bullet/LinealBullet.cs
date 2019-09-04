@@ -10,6 +10,7 @@ public class LinealBullet : MonoBehaviour{
 
     public Vector2 position;
     public GameObject ExplosionPrefab;
+    public GameObject MineTrap;
 
     // Start is called before the first frame update
     void Start (){
@@ -26,11 +27,14 @@ public class LinealBullet : MonoBehaviour{
         EnemyParent enemy = other.gameObject.GetComponent<EnemyParent> ();
         if (enemy) {
             switch (gameObject.tag) {
-                case "Untagged":
+                case "NormalBullet":
                     enemy.TakeDamage (2);
                     break;
                 case "Grenade":
                     enemy.TakeDamage (10);
+                    break;
+                case "RPG":
+                    enemy.TakeDamage (20);
                     break;
             }
         }
@@ -38,6 +42,10 @@ public class LinealBullet : MonoBehaviour{
         if (other.CompareTag ("Enemy") || other.CompareTag ("Floor")) {//Detecta colisiones y empieza la explosion
             if (gameObject.CompareTag ("Grenade")) {
                 Explode ();
+            } else if (gameObject.CompareTag ("RPG")) {
+                Explode ();
+            }else if (gameObject.CompareTag ("TrapBullet")) {
+                Mine ();
             }
             Destroy (gameObject);
         }
@@ -45,5 +53,9 @@ public class LinealBullet : MonoBehaviour{
     void Explode (){//Genera el area de explosion
         Debug.Log ("KABOOOM!!!!");
         GameObject explosion = Instantiate (ExplosionPrefab, position, Quaternion.identity);
+    }
+    void Mine (){//Genera el area de explosion
+        Debug.Log ("Pup");
+        GameObject instalingMine = Instantiate (MineTrap, position, Quaternion.identity);
     }
 }

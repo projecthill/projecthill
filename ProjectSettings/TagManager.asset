@@ -9,6 +9,10 @@ TagManager:
   - Turret
   - Floor
   - Grenade
+  - Trap
+  - NormalBullet
+  - RPG
+  - TrapBullet
   layers:
   - Default
   - TransparentFX

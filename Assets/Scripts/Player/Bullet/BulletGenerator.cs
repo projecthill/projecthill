@@ -14,9 +14,9 @@ public class BulletGenerator : MonoBehaviour{
     public List<Sprite> bulletSprites;
 
     public bool withNormalWeapon = true;
-    /*public bool withGrenadeLauncher;
+    public bool withGrenadeLauncher;
     public bool withRPG;
-    public bool withTrapLauncher;*/
+    public bool withTrapLauncher;
 
     // Start is called before the first frame update
     void Start (){
@@ -25,29 +25,28 @@ public class BulletGenerator : MonoBehaviour{
 
     // Update is called once per frame
     void Update (){
+        //permite cambiar de armas
         if (Input.GetKeyDown (KeyCode.Alpha1)) {
             withNormalWeapon = true;
+            withGrenadeLauncher = false;
+            withRPG = false;
+            withTrapLauncher = false;
         } else if (Input.GetKeyDown (KeyCode.Alpha2)) {
-            withNormalWeapon = false;
-        }
-        /*if (Input.GetKeyDown (KeyCode.Alpha2)) {
             withNormalWeapon = false;
             withGrenadeLauncher = true;
             withRPG = false;
             withTrapLauncher = false;
-        }
-        if (Input.GetKeyDown (KeyCode.Alpha3)) {
+        } else if (Input.GetKeyDown (KeyCode.Alpha3)) {
             withNormalWeapon = false;
             withGrenadeLauncher = false;
             withRPG = true;
             withTrapLauncher = false;
-        }
-        if (Input.GetKeyDown (KeyCode.Alpha4)) {
+        } else if (Input.GetKeyDown (KeyCode.Alpha4)) {
             withNormalWeapon = false;
             withGrenadeLauncher = false;
             withRPG = false;
             withTrapLauncher = true;
-        }*/
+        }
 
         if (isOnCooldown == false) {//Permite o impide disparar
             if (Input.GetKeyDown (KeyCode.Space)) {
@@ -58,13 +57,14 @@ public class BulletGenerator : MonoBehaviour{
     }
 
 
-    void GenerateLinealBullet (){//Genera la bala y le da direccion
+    void GenerateNormalBullet (){//Genera la bala y le da direccion
         Debug.Log ("PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
+        bullet.tag = "NormalBullet";
     }
-    void GenerateFallingBullet (){
+    void GenerateGrenadeBullet (){
         Debug.Log ("BIG PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
@@ -73,29 +73,38 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
         bullet.tag = "Grenade";
     }
-    void GenerateRPGBullet (){
-
-    }
-    /*void GenerateFallingBullet ()
-    {//Genera la bala y le da direccion
-        Debug.Log ("PUM!");
+    void GenerateTrapBullet (){
+        Debug.Log ("LaunchingTrap");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
-        bullet.GetComponent<FallingBullet> ().direction = transform.up;
-    }*/
+        bullet.GetComponent<LinealBullet> ().direction = transform.up;
+        bullet.GetComponent<LinealBullet> ().speed = 7;
+        bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[3];
+        bullet.tag = "TrapBullet";
+    }
 
+    void GenerateRPGBullet (){
+        Debug.Log ("KAAAABBBBBBOOOOOOMMMM");
+        GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        bullet.GetComponent<LinealBullet> ().direction = transform.up;
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
+        bullet.tag = "RPG";
+    }
     IEnumerator Burst (){//Rafaga de disparo
         if (withNormalWeapon == true) {
-            GenerateLinealBullet ();
+            GenerateNormalBullet ();
             yield return new WaitForSeconds (BulletSpace);
-            GenerateLinealBullet ();
+            GenerateNormalBullet ();
             yield return new WaitForSeconds (BulletSpace);
-            GenerateLinealBullet ();
-        } else {
-            GenerateFallingBullet ();
+            GenerateNormalBullet ();
+        } else if (withGrenadeLauncher == true){
+            GenerateGrenadeBullet ();
+
+        }else if(withRPG == true) {
+            GenerateRPGBullet ();
+        }else if (withTrapLauncher == true) {
+            GenerateTrapBullet ();
         }
-        /*if (withGrenadeLauncher == true) {
-            GenerateFallingBullet ();
-        }*/
         StartCoroutine (CoolingDown ());
     }
 

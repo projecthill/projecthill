@@ -772,15 +772,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97651f02b1e871447bc08b2cdc76eb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 3609062921853096488, guid: 24c1fe7843dfa884784bc06b2e5a10b1,
+  BulletPrefab: {fileID: 3002474800754054155, guid: 288c4fed7ae01ef4993fcaba73e09d19,
     type: 3}
   BulletSpace: 0.2
   CoolDown: 1
   isOnCooldown: 0
   bulletSprites:
   - {fileID: 21300000, guid: a3762d75c56ff2f4f854107a24db6218, type: 3}
-  - {fileID: 21300000, guid: d02948d2a0a41e84286d68052b6f53c8, type: 3}
+  - {fileID: 21300000, guid: c24edec46ba0ad241b951f73eef6b617, type: 3}
+  - {fileID: 21300000, guid: 7ffaf5c25ea79be4686314be8a50cc97, type: 3}
+  - {fileID: 21300000, guid: 55416b2363a827342b5d2a5ec28aff40, type: 3}
   withNormalWeapon: 1
+  withGrenadeLauncher: 0
+  withRPG: 0
+  withTrapLauncher: 0
 --- !u!1 &2010859739
 GameObject:
   m_ObjectHideFlags: 0
