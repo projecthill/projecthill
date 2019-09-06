@@ -19,7 +19,7 @@ public class LinealBullet : MonoBehaviour{
 
     // Update is called once per frame
     void Update (){ //Movimiento y deteccion de posicion de la bala
-        transform.Translate (direction * speed * Time.deltaTime);
+        transform.Translate (direction * speed * Time.deltaTime, Space.World);
         position = transform.position;
     }
 

@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 534569560}
   m_Layer: 0
   m_Name: SoloCanon
-  m_TagString: Untagged
+  m_TagString: Canon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -773,6 +773,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 3002474800754054155, guid: 288c4fed7ae01ef4993fcaba73e09d19,
+    type: 3}
+  RayxorPrefab: {fileID: 1467622366892703978, guid: 58048efbcbdd731428d4dfb89848bb04,
     type: 3}
   BulletSpace: 0.2
   CoolDown: 1
