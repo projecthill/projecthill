@@ -63,8 +63,11 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<SpriteRenderer> ().color = Color.blue;
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
+        bullet.GetComponent<LinealBullet> ().speed = 12.5f;
+        //bullet.GetComponent<Transform> ().rotation = 0;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "NormalBullet";
+        CoolDown = 0.5f;
     }
     void GenerateGrenadeBullet (){
         Debug.Log ("BIG PUM!");
@@ -76,6 +79,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
         bullet.tag = "Grenade";
+        CoolDown = 1;
     }
     void GenerateTrapBullet (){
         Debug.Log ("LaunchingTrap");
@@ -87,6 +91,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[3];
         bullet.tag = "TrapBullet";
+        CoolDown = 2;
     }
 
     void GenerateRPGBullet (){
@@ -95,8 +100,10 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<SpriteRenderer> ().color = Color.black;
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
+        bullet.GetComponent<LinealBullet> ().speed = 7.5f;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
+        CoolDown = 2.5f;
     }
     IEnumerator Burst (){//Rafaga de disparo
         if (withNormalWeapon == true) {
@@ -121,5 +128,6 @@ public class BulletGenerator : MonoBehaviour{
     IEnumerator CoolingDown (){//Cooldown del disparo
         yield return new WaitForSeconds (CoolDown);
         isOnCooldown = false;
+        CoolDown = 0;
     }
 }

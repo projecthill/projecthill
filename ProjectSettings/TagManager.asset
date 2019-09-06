@@ -13,6 +13,7 @@ TagManager:
   - NormalBullet
   - RPG
   - TrapBullet
+  - Canon
   layers:
   - Default
   - TransparentFX
