@@ -18,7 +18,7 @@ public class TrapBullet : MonoBehaviour{
 
     void OnTriggerEnter2D (Collider2D other){
         if (other.CompareTag ("Floor")) {
-            
+            gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
         }
     }
 

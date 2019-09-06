@@ -60,34 +60,42 @@ public class BulletGenerator : MonoBehaviour{
     void GenerateNormalBullet (){//Genera la bala y le da direccion
         Debug.Log ("PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        bullet.GetComponent<SpriteRenderer> ().color = Color.blue;
+        bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
-        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
+        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "NormalBullet";
     }
     void GenerateGrenadeBullet (){
         Debug.Log ("BIG PUM!");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        bullet.GetComponent<SpriteRenderer> ().color = Color.green;
+        bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 10;
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
-        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
+        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
         bullet.tag = "Grenade";
     }
     void GenerateTrapBullet (){
         Debug.Log ("LaunchingTrap");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        bullet.GetComponent<SpriteRenderer> ().color = Color.red;
+        bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 7;
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
-        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[3];
+        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[3];
         bullet.tag = "TrapBullet";
     }
 
     void GenerateRPGBullet (){
         Debug.Log ("KAAAABBBBBBOOOOOOMMMM");
         GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        bullet.GetComponent<SpriteRenderer> ().color = Color.black;
+        bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
-        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
+        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
     }
     IEnumerator Burst (){//Rafaga de disparo
