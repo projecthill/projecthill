@@ -81,7 +81,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 12.5f;
-        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "NormalBullet";
         CoolDown = 0.5f;
     }
@@ -118,9 +118,10 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 7.5f;
         bullet.GetComponent<Transform> ().up = transform.up;
-        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
+        bullet.GetComponent<Transform> ().parent = transform;
+        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
-        CoolDown = 2.5f;
+        CoolDown = 5;
         return bullet.transform;
     }
 
