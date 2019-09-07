@@ -18,7 +18,7 @@ public class SpawnableEntity : MonoBehaviour
      
     }
 
-    public void Create(Vector2 position, Quaternion rotation) //crear instancias de los enemigos
+    public void Create(Vector2 position, Quaternion rotation) //crear instancias de el enemigo que tiene este script
     {
         Instantiate(gameObject, position, rotation);
     }

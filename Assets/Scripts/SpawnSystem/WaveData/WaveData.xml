@@ -14,4 +14,54 @@
       <enemy>FastEnemy1</enemy>
     </enemies>
   </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>StrongEnemy1</enemy>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
+<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+    <enemies>
+      <enemy>FastEnemy1</enemy>
+    </enemies>
+  </WaveData>
 </Waves>
