@@ -10,6 +10,7 @@ public class PlayerAtributes : MonoBehaviour{
 
     GameObject enemy;
     EnemyParent damage;
+    EnemyParent enemyValue;
 
 
     // Start is called before the first frame update
@@ -35,11 +36,18 @@ public class PlayerAtributes : MonoBehaviour{
         }
     }
 
-    public void DamagePlayer()
+    public void DamagePlayer() //se reduce la vida de la torre en la cantidad del daño del enemigo
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         damage = enemy.GetComponent<EnemyParent>();
         playerHealth -= damage.enemyDamage;
+    }
+
+    public void GainMoney() //incrementa el dinero del player en el valor de dinero del enemigo destruído
+    {
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyValue = enemy.GetComponent<EnemyParent>();
+        money += enemyValue.enemyValue;
     }
   
 
