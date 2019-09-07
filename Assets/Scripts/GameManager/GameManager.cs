@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (GameIsOver)
             return;
 
-        if (PlayerAtributes.playerHitPoints <= 0) {
+        if (PlayerAtributes.playerHealth <= 0) {
             EndGame ();
         }
     }

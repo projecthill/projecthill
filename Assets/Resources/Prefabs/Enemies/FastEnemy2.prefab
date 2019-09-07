@@ -98,7 +98,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.008149326, y: 0.012223721}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.14999999, y: 0.03, z: 0.14999999, w: 0.22999999}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
@@ -156,7 +156,7 @@ MonoBehaviour:
   health: 10
   enemyDirection: 1
   enemySpeed: 5
-  enemyDamage: 10
+  enemyDamage: 2
   explosion: {fileID: 7074139608081626303, guid: c0874327008551b429bec4b510ae597d,
     type: 3}
   pathPoints:

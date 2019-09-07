@@ -156,7 +156,7 @@ MonoBehaviour:
   health: 10
   enemyDirection: 1
   enemySpeed: 4
-  enemyDamage: 10
+  enemyDamage: 3
   explosion: {fileID: 7074139608081626303, guid: c0874327008551b429bec4b510ae597d,
     type: 3}
   pathPoints:
