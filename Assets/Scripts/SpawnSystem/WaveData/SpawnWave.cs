@@ -9,7 +9,7 @@ public class SpawnWave //clase SpawnWave
 
     public string[] enemies; //array de enemigos
 
-    public SpawnWave(float startTime, float timer, float timeDelta)
+    public SpawnWave(float startTime, float timer, float timeDelta) //obtiene los valores de startTime, timer y timeDelta
     {
         this.startTime = startTime;
         this.timer = timer;
