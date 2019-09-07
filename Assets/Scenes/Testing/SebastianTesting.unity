@@ -788,6 +788,8 @@ MonoBehaviour:
   withGrenadeLauncher: 0
   withRPG: 0
   withTrapLauncher: 0
+  withRayxor: 0
+  isRayxoring: 0
 --- !u!1 &2010859739
 GameObject:
   m_ObjectHideFlags: 0
