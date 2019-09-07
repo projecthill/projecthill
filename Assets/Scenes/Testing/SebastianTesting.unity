@@ -782,7 +782,7 @@ MonoBehaviour:
   bulletSprites:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d800d76b6fd7e704aa1fe39d62265dd6, type: 3}
   - {fileID: 0}
   withNormalWeapon: 1
   withGrenadeLauncher: 0

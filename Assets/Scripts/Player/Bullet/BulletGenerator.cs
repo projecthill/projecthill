@@ -116,7 +116,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 7.5f;
-        //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
+        bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
         CoolDown = 2.5f;
     }
