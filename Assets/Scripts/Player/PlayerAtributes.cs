@@ -5,10 +5,23 @@ using UnityEngine;
 public class PlayerAtributes : MonoBehaviour{
 
     // Atributos por ser manipulados por progresión del juego
-    int attribHP = 10;
-    int attribATK;
-    int attribDEF;
+    public static int playerHitPoints = 20;
+    public int money = 0;
 
-  
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+     
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
 
 }
