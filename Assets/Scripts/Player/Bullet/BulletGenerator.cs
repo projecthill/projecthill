@@ -7,6 +7,7 @@ public class BulletGenerator : MonoBehaviour{
 
     public GameObject BulletPrefab;
     public GameObject RayxorPrefab;
+    public GameObject RPGPrefab;
     public float BulletSpace;
     public float CoolDown;
     public bool isOnCooldown;
@@ -109,16 +110,18 @@ public class BulletGenerator : MonoBehaviour{
         CoolDown = 2;
     }
 
-    void GenerateRPGBullet (){
+    Transform GenerateRPGBullet (){
         Debug.Log ("KAAAABBBBBBOOOOOOMMMM");
-        GameObject bullet = Instantiate (BulletPrefab, position, Quaternion.identity);
+        GameObject bullet = Instantiate (RPGPrefab, position, Quaternion.identity);
         bullet.GetComponent<SpriteRenderer> ().color = Color.black;
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 7.5f;
+        bullet.GetComponent<Transform> ().up = transform.up;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
         CoolDown = 2.5f;
+        return bullet.transform;
     }
 
     Transform GenerateLayzorBullet ()
