@@ -12,6 +12,8 @@ public class StoreMenu : MonoBehaviour{
             bool isActive = Panel.activeSelf;
 
             Panel.SetActive (!isActive);
+
+            Time.timeScale = (!isActive) ? 0 : 1f;
         }
 
     }
