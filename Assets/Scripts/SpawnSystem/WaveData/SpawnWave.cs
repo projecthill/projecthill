@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public class SpawnWave //clase SpawnWave
 {
-    public float startTime;
-    public float timer;
-    public float timeDelta;
+    public float startTime; //cuantos segundos se demora en salir el primer enemigo de la ola
+    public float timer; //cuantos segundos se demora en salir el siguiente enemigo de la ola
+    public float timeDelta; //cuantos segundos varia timer luego de que sale un enemigo en la misma oleada
 
     public string[] enemies; //array de enemigos
 

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public TextAsset spawnData; //para acceder al archivo XML spawnData
-    Queue<SpawnWave> spawnWaves; //lista de oleadas que se encuentran en cola para ser creadas
+    public TextAsset spawnData; //campo para colocar el archivo XML en el inspector
+    Queue<SpawnWave> spawnWaves; //lista de clases SpawnWave
 
     Queue<string> spawnQueue; //lista de enemigos que se encuentran en cola para ser instanciados
     int activeEntityLimit;
@@ -24,10 +24,10 @@ public class Spawner : MonoBehaviour
 
         if (spawnData)
         {
-            ParseData(spawnData.text);
+            ParseData(spawnData.text); //llama al metodo ParseData
         }
 
-        FillQueue();
+        FillQueue(); //llama al metodo FillQueue
 
     }
 
@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
         ResetTimer(SpawnEntity);
     }
 
-    void ResetTimer(Action action) //resetea el currentTimer para el próximo wave
+    void ResetTimer(Action action) //resetea el timer a 0 antes que empiece próximo wave
     {
         if (currentTimer >= spawnDelay){
             action.Invoke();
@@ -49,7 +49,7 @@ public class Spawner : MonoBehaviour
     void FillQueue () //rellena la lista de enemigos que corresponden a la oleada
     {
         SpawnWave wave = spawnWaves.Dequeue();
-        foreach (string enemy in wave.enemies)
+        foreach (string enemy in wave.enemies) //enemies array de enemigos de la clase SpawnWava
         {
             spawnQueue.Enqueue(enemy);
         }
