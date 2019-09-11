@@ -110,10 +110,10 @@ public class BulletGenerator : MonoBehaviour{
         CoolDown = 2;
     }
 
-    Transform GenerateRPGBullet (){
+    void GenerateRPGBullet (){
         Debug.Log ("KAAAABBBBBBOOOOOOMMMM");
         GameObject bullet = Instantiate (RPGPrefab, position, Quaternion.identity);
-        bullet.GetComponent<SpriteRenderer> ().color = Color.black;
+        //bullet.GetComponent<SpriteRenderer> ().color = Color.black;
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 7.5f;
@@ -122,7 +122,7 @@ public class BulletGenerator : MonoBehaviour{
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
         CoolDown = 5;
-        return bullet.transform;
+        //return bullet.transform;
     }
 
     Transform GenerateLayzorBullet ()
@@ -161,9 +161,10 @@ public class BulletGenerator : MonoBehaviour{
             while (timer > 0) {
                 timer -= Time.deltaTime;
                 RaycastHit2D hit = Physics2D.Raycast (transform.position, transform.up);
-                float scaleSize = 10;
+                float scaleSize = 0.3f;
                 if (hit) {
-                    scaleSize = hit.distance / 15;
+                    Debug.Log ("Quemando");
+                    scaleSize = hit.distance / 55;
                 }
                 Vector3 scale = rayxorBullet.localScale;
                 scale.y = scaleSize;

@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour{
             gameObject.GetComponent<SpriteRenderer> ().sprite = CanonSprites[4];
         }
 
-        Debug.Log (transform.rotation.z);
+        //Debug.Log (transform.rotation.z);
         //Movimiento hacia arriba del cañon
         if (Input.GetKey (KeyCode.W) && transform.rotation.z < 0.25) {
             speed = 0.2f;
