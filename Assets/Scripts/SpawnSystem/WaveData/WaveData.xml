@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Waves>
-  <WaveData startTime="3" timer="8.2" timeDelta="0.1">
+<WaveData startTime="3" timer="8.2" timeDelta="0.1">
     <enemies>
       <enemy>RegularEnemy1</enemy>
       <enemy>RegularEnemy1</enemy>
       </enemies>
   </WaveData>
-  <WaveData startTime="20" timer="3.2" timeDelta="-0.1">
+<WaveData startTime="4" timer="3.2" timeDelta="-0.1">
     <enemies>
       <enemy>FastEnemy1</enemy>
       <enemy>StrongEnemy1</enemy>
@@ -14,7 +14,7 @@
       <enemy>FastEnemy1</enemy>
     </enemies>
   </WaveData>
-<WaveData startTime="10" timer="3.2" timeDelta="-0.1">
+<WaveData startTime="5" timer="3.2" timeDelta="-0.1">
     <enemies>
       <enemy>FastEnemy1</enemy>
       <enemy>StrongEnemy1</enemy>

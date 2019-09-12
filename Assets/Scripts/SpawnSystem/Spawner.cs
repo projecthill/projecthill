@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq; //necesario para leer archivo XML
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -12,9 +13,12 @@ public class Spawner : MonoBehaviour
     Queue<string> spawnQueue; //lista de enemigos que se encuentran en cola para ser instanciados
     int activeEntityLimit;
     public float spawnDelay;
-    float currentTimer;
-    float currentDelta;
-    float variantTimer;
+    public float currentTimer;
+    public float currentDelta;
+    public float variantTimer;
+
+    
+    public Text textBox;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,7 @@ public class Spawner : MonoBehaviour
             ParseData(spawnData.text); //llama al metodo ParseData
         }
 
-        FillQueue(); //llama al metodo FillQueue
+        FillQueue();
 
     }
 
@@ -36,9 +40,10 @@ public class Spawner : MonoBehaviour
     {
         currentTimer += Time.deltaTime; //currentTimer aumenta en Time.deltaTime
         ResetTimer(SpawnEntity);
+                
     }
 
-    void ResetTimer(Action action) //resetea el timer a 0 antes que empiece próximo wave
+    void ResetTimer(Action action) //resetea el timer a 0 al empezar cada wave
     {
         if (currentTimer >= spawnDelay){
             action.Invoke();
@@ -49,13 +54,15 @@ public class Spawner : MonoBehaviour
     void FillQueue () //rellena la lista de enemigos que corresponden a la oleada
     {
         SpawnWave wave = spawnWaves.Dequeue();
-        foreach (string enemy in wave.enemies) //enemies array de enemigos de la clase SpawnWava
+        foreach (string enemy in wave.enemies) //enemies array de enemigos de la clase SpawnWave
         {
             spawnQueue.Enqueue(enemy);
         }
         spawnDelay = wave.startTime;
         currentDelta = wave.timeDelta;
         variantTimer = wave.timer;
+
+        textBox.text = "Next wave starts in: " + Mathf.Round(spawnDelay).ToString();
     }
 
     void ParseData (string textData)
