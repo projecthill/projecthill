@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5648406970106147690}
   m_Layer: 0
   m_Name: RPG
-  m_TagString: Untagged
+  m_TagString: RPG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
