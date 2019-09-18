@@ -129,7 +129,7 @@ public class BulletGenerator : MonoBehaviour{
     {//Genera la bala y le da direccion
         Debug.Log ("RAYUM!");
         GameObject bullet = Instantiate (RayxorPrefab, position, Quaternion.identity);
-        bullet.GetComponent<SpriteRenderer> ().color = Color.blue;
+        //bullet.GetComponent<SpriteRenderer> ().color = Color.blue;
         bullet.GetComponent<SpriteRenderer> ().sortingOrder = 100;
         bullet.GetComponent<LinealBullet> ().direction = transform.up;
         bullet.GetComponent<LinealBullet> ().speed = 0;
