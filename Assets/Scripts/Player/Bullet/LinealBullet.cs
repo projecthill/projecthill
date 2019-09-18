@@ -12,6 +12,7 @@ public class LinealBullet : MonoBehaviour{
     public GameObject ExplosionPrefab;
     public GameObject MineTrap;
 
+
     // Start is called before the first frame update
     void Start (){
 
@@ -21,6 +22,11 @@ public class LinealBullet : MonoBehaviour{
     void Update (){ //Movimiento y deteccion de posicion de la bala
         transform.Translate (direction * speed * Time.deltaTime, Space.World);
         position = transform.position;
+        if(gameObject.tag == "Grenade") {
+            Quaternion temp = transform.rotation;
+            temp.z = speed * Time.deltaTime;
+            transform.rotation = temp;
+        }
     }
 
     void OnTriggerEnter2D (Collider2D other){//destruye a un enemigo al tener contacto con él
