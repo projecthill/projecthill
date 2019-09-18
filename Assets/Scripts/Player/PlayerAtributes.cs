@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAtributes : MonoBehaviour{
 
@@ -12,6 +13,11 @@ public class PlayerAtributes : MonoBehaviour{
     EnemyParent damage;
     EnemyParent enemyValue;
 
+    public Text healthUI;
+    public Text moneyUI;
+    public Text TimeUI;
+
+    public ProgressBar currentBar;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +30,10 @@ public class PlayerAtributes : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        
+        healthUI.text = "Vida: " + playerHealth;
+        moneyUI.text = "Dinero: " + money;
+        TimeUI.text = "Tiempo: " + (int) currentBar.progress;
+
     }
 
     void OnTriggerEnter2D(Collider2D other) //Detecta colisión con enemigo
