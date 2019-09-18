@@ -17,8 +17,13 @@ public class RPGExplotion : MonoBehaviour{
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Floor") || other.CompareTag("Enemy")) { 
-
+        if (other.CompareTag("Floor") || other.CompareTag("Enemy")) {
+            Explosion();
+            Destroy(gameObject);
         }
+    }
+
+    void Explosion() {
+        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity);
     }
 }
