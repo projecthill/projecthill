@@ -136,7 +136,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Transform> ().up = transform.up;
         bullet.GetComponent<Transform> ().parent = transform;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
-        bullet.tag = "NormalBullet";
+        bullet.tag = "Rayxor";
         CoolDown = 0.5f;
         isRayxoring = true;
         return bullet.transform;
