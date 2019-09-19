@@ -30,9 +30,9 @@ public class PlayerAtributes : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        healthUI.text = "Vida: " + playerHealth;
-        moneyUI.text = "Dinero: " + money;
-        TimeUI.text = "Tiempo: " + (int) currentBar.progress;
+        if (healthUI) healthUI.text = "Vida: " + playerHealth;
+        if (moneyUI) moneyUI.text = "Dinero: " + money;
+        if (TimeUI) TimeUI.text = "Tiempo: " + (int) currentBar.progress;
 
     }
 
