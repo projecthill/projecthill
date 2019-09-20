@@ -33,35 +33,55 @@ public class BulletGenerator : MonoBehaviour{
         //permite cambiar de armas
         if (!isRayxoring) {
             if (Input.GetKeyDown (KeyCode.Alpha1)) {
+                if (!withNormalWeapon) {
+                    CoolDown = 0;
+                    isOnCooldown = false;
+                }
                 withNormalWeapon = true;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = false;
                 withRayxor = false;
+                
             } else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+                if (!withGrenadeLauncher) {
+                    CoolDown = 0;
+                    isOnCooldown = false;
+                }
                 withNormalWeapon = false;
                 withGrenadeLauncher = true;
                 withRPG = false;
                 withTrapLauncher = false;
                 withRayxor = false;
             } else if (Input.GetKeyDown (KeyCode.Alpha3)) {
+                if (!withRPG) {
+                    CoolDown = 0;
+                    isOnCooldown = false;
+                }
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = true;
                 withTrapLauncher = false;
                 withRayxor = false;
             } else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+                if (!withTrapLauncher) {
+                    CoolDown = 0;
+                    isOnCooldown = false;
+                }
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = true;
                 withRayxor = false;
+                
             } else if (Input.GetKeyDown (KeyCode.Alpha5)) {
+                
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = false;
                 withRayxor = true;
+                
             }
         }
 

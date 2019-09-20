@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour{
 
     public List<Sprite> CanonSprites;
 
+    public BulletGenerator Generator;
+    public bool RayxorSlow { get { return Generator.isRayxoring; } }
+
     // Start is called before the first frame update
     void Start(){
         
@@ -31,17 +34,27 @@ public class PlayerMovement : MonoBehaviour{
         //Debug.Log (transform.rotation.z);
         //Movimiento hacia arriba del cañon
         if (Input.GetKey (KeyCode.W) && transform.rotation.z < 0.25) {
-            speed = 0.2f;
+            if (RayxorSlow == true) {
+                speed = 0.05f;
+            } else {
+                speed = 0.2f;
+            }
+
             Quaternion temp = transform.rotation;
             temp.z += speed * Time.deltaTime;
             transform.rotation = temp;
         }
         //Movimiento hacia abajo del cañon
         if (Input.GetKey (KeyCode.S) && transform.rotation.z > -0.25) {
-            speed = -0.2f;
+            if (RayxorSlow == true) {
+                speed = -0.05f;
+            } else {
+                speed = -0.2f;
+            }
             Quaternion temp = transform.rotation;
             temp.z += speed * Time.deltaTime;
             transform.rotation = temp;
         }
+        //if(Generator.isRayxoring = true)
     }
 }

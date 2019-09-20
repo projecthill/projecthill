@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 97740934b587a7c4b959ce3dc4ca060c, type: 3}
   - {fileID: 21300000, guid: ade362d99b6f2ef459a80f5bc91b5c34, type: 3}
   - {fileID: 21300000, guid: ad7aa7cf499aa6542b886fdaa685e04b, type: 3}
+  Generator: {fileID: 1998377661}
 --- !u!61 &534569561
 BoxCollider2D:
   m_ObjectHideFlags: 0
