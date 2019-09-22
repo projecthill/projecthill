@@ -9,8 +9,6 @@ public class BulletGenerator : MonoBehaviour{
     public GameObject RayxorPrefab;
     public GameObject RPGPrefab;
     public float BulletSpace;
-    public float CoolDown;
-    public bool isOnCooldown;
     public Vector2 position { get { return transform.position; } }
 
     public List<Sprite> bulletSprites;
@@ -23,72 +21,105 @@ public class BulletGenerator : MonoBehaviour{
 
     public bool isRayxoring;
 
+    public List<float> CDs;
+    public List<bool> ActiveCDs;
+
+    /*public float CDNormalWeapon = 0;
+    public float CDGrenadeLauncher = 0;
+    public float CDRPG = 0;
+    public float CDTrapLauncher = 0;
+    public float CDRayxor = 0;*/
+
+    /*public bool ActiveCDNormalWeapon;
+    public bool ActiveCDGrenadeLauncher;
+    public bool ActiveRPG;
+    public bool ActiveCDTrapLauncher;
+    public bool ActiveCDRayxor;*/
+
     // Start is called before the first frame update
     void Start (){
+        CDs[0] = 0;
+        CDs[1] = 0;
+        CDs[2] = 0;
+        CDs[3] = 0;
+        CDs[4] = 0;
 
+        ActiveCDs[0] = false;
+        ActiveCDs[1] = false;
+        ActiveCDs[2] = false;
+        ActiveCDs[3] = false;
+        ActiveCDs[4] = false;
     }
 
     // Update is called once per frame
     void Update (){
+
+        
+
         //permite cambiar de armas
         if (!isRayxoring) {
             if (Input.GetKeyDown (KeyCode.Alpha1)) {
-                if (!withNormalWeapon) {
-                    CoolDown = 0;
-                    isOnCooldown = false;
-                }
+                
                 withNormalWeapon = true;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = false;
                 withRayxor = false;
-                
-            } else if (Input.GetKeyDown (KeyCode.Alpha2)) {
-                if (!withGrenadeLauncher) {
-                    CoolDown = 0;
-                    isOnCooldown = false;
-                }
+            }
+            if (Input.GetKeyDown (KeyCode.Alpha2)) {
+               
                 withNormalWeapon = false;
                 withGrenadeLauncher = true;
                 withRPG = false;
                 withTrapLauncher = false;
                 withRayxor = false;
-            } else if (Input.GetKeyDown (KeyCode.Alpha3)) {
-                if (!withRPG) {
-                    CoolDown = 0;
-                    isOnCooldown = false;
-                }
+            }
+            if (Input.GetKeyDown (KeyCode.Alpha3)) {
+                
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = true;
                 withTrapLauncher = false;
                 withRayxor = false;
-            } else if (Input.GetKeyDown (KeyCode.Alpha4)) {
-                if (!withTrapLauncher) {
-                    CoolDown = 0;
-                    isOnCooldown = false;
-                }
+            }
+            if (Input.GetKeyDown (KeyCode.Alpha4)) {
+                
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = true;
                 withRayxor = false;
-                
-            } else if (Input.GetKeyDown (KeyCode.Alpha5)) {
-                
+            }
+            if (Input.GetKeyDown (KeyCode.Alpha5)) { 
                 withNormalWeapon = false;
                 withGrenadeLauncher = false;
                 withRPG = false;
                 withTrapLauncher = false;
-                withRayxor = true;
-                
+                withRayxor = true; 
             }
         }
 
-        if (isOnCooldown == false) {//Permite o impide disparar
+        /*if (isOnCooldown == false) {//Permite o impide disparar
             if (Input.GetKeyDown (KeyCode.Space)) {
                 isOnCooldown = true;
                 StartCoroutine (Burst ());
+            }
+        }*/
+        if (Input.GetKeyDown(KeyCode.Space)){
+            if(ActiveCDs[0] == false && withNormalWeapon == true) {
+                ActiveCDs[0] = true;
+                CDs[0] = 1;
+                StartCoroutine(Burst());
+            }
+            
+        }
+
+        if (CDs[0] > 0) {
+            CDs[0] -= Time.deltaTime;
+        } else if (CDs[0] < 0) {
+            CDs[0] = 0;
+            if (CDs[0] == 0){
+                ActiveCDs[0] = false;
             }
         }
     }
@@ -103,7 +134,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<LinealBullet> ().speed = 12.5f;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "NormalBullet";
-        CoolDown = 0.5f;
+        
     }
     void GenerateGrenadeBullet (){
         Debug.Log ("BIG PUM!");
@@ -115,7 +146,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[1];
         bullet.tag = "Grenade";
-        CoolDown = 1;
+        
     }
     void GenerateTrapBullet (){
         Debug.Log ("LaunchingTrap");
@@ -127,7 +158,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[3];
         bullet.tag = "TrapBullet";
-        CoolDown = 2;
+        
     }
 
     void GenerateRPGBullet (){
@@ -141,7 +172,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Transform> ().parent = transform;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[2];
         bullet.tag = "RPG";
-        CoolDown = 5;
+        
         //return bullet.transform;
     }
 
@@ -157,33 +188,37 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<Transform> ().parent = transform;
         //bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "Rayxor";
-        CoolDown = 0.5f;
+        
         isRayxoring = true;
         return bullet.transform;
     }
-    IEnumerator Burst (){//Rafaga de disparo
-        if (withNormalWeapon == true) {
-            GenerateNormalBullet ();
-            yield return new WaitForSeconds (BulletSpace);
-            GenerateNormalBullet ();
-            yield return new WaitForSeconds (BulletSpace);
-            GenerateNormalBullet ();
-        } else if (withGrenadeLauncher == true){
-            GenerateGrenadeBullet ();
 
-        }else if(withRPG == true) {
-            GenerateRPGBullet ();
-        }else if (withTrapLauncher == true) {
-            GenerateTrapBullet ();
-        } else if (withRayxor == true) {
-            Transform rayxorBullet = GenerateLayzorBullet ();
+    IEnumerator Burst(){//Rafaga de disparo
+        if (withNormalWeapon == true){
+            GenerateNormalBullet();
+            yield return new WaitForSeconds(BulletSpace);
+            GenerateNormalBullet();
+            yield return new WaitForSeconds(BulletSpace);
+            GenerateNormalBullet();
+        }
+        if (withGrenadeLauncher == true){
+            GenerateGrenadeBullet();
+        }
+        if (withRPG == true){
+            GenerateRPGBullet();
+        }
+        if (withTrapLauncher == true){
+            GenerateTrapBullet();
+        }
+        if (withRayxor == true){
+            Transform rayxorBullet = GenerateLayzorBullet();
             float timer = 1;
-            while (timer > 0) {
+            while (timer > 0){
                 timer -= Time.deltaTime;
-                RaycastHit2D hit = Physics2D.Raycast (transform.position, transform.up);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
                 float scaleSize = 0.3f;
-                if (hit) {
-                    Debug.Log ("Quemando");
+                if (hit){
+                    Debug.Log("Quemando");
                     scaleSize = hit.distance / 55;
                 }
                 Vector3 scale = rayxorBullet.localScale;
@@ -191,17 +226,21 @@ public class BulletGenerator : MonoBehaviour{
                 rayxorBullet.localScale = scale;
                 yield return null;
             }
-            Destroy (rayxorBullet.gameObject);
+            Destroy(rayxorBullet.gameObject);
             isRayxoring = false;
         }
-        StartCoroutine (CoolingDown ());
+        
     }
 
-    
-
-    IEnumerator CoolingDown (){//Cooldown del disparo
-        yield return new WaitForSeconds (CoolDown);
-        isOnCooldown = false;
-        CoolDown = 0;
-    }
+    /*IEnumerator CoolingDown (){//Cooldown del disparo
+        if (CDs[0] > 0){
+            CDs[0] -= Time.deltaTime;
+        }else if (CDs[0] < 0){
+            CDs[0] = 0;
+            if (CDs[0] == 0){
+                ActiveCDs[0] = false;
+            }
+        }
+        yield return null;
+    }*/
 }
