@@ -39,7 +39,7 @@ public class LinealBullet : MonoBehaviour{
                     enemy.TakeDamage (2);
                     break;
                 case "Grenade":
-                    enemy.TakeDamage (10);
+                    enemy.TakeDamage (1);
                     break;
                 case "RPG":
                     enemy.TakeDamage (20);
