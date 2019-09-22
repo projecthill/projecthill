@@ -10,6 +10,7 @@ public class LinealBullet : MonoBehaviour{
 
     public Vector2 position;
     public GameObject ExplosionPrefab;
+    public GameObject GrenadeExplosionPrefab;
     public GameObject MineTrap;
 
 
@@ -38,7 +39,7 @@ public class LinealBullet : MonoBehaviour{
                     enemy.TakeDamage (2);
                     break;
                 case "Grenade":
-                    enemy.TakeDamage (10);
+                    enemy.TakeDamage (1);
                     break;
                 case "RPG":
                     enemy.TakeDamage (20);
@@ -54,7 +55,7 @@ public class LinealBullet : MonoBehaviour{
 
         if (other.CompareTag ("Enemy") || other.CompareTag ("Floor")) {//Detecta colisiones y empieza la explosion
             if (gameObject.CompareTag ("Grenade")) {
-                Explode ();
+                GrenadeExplosion ();
                 Destroy(gameObject);
             } else if (gameObject.CompareTag ("RPG")) {
                 Explode ();
@@ -72,6 +73,11 @@ public class LinealBullet : MonoBehaviour{
         Debug.Log ("KABOOOM!!!!");
         GameObject explosion = Instantiate (ExplosionPrefab, position, Quaternion.identity);
     }
+
+    void GrenadeExplosion(){
+        Instantiate(GrenadeExplosionPrefab, position, Quaternion.identity);
+    }
+
     void Mine (){//Genera el area de explosion
         Debug.Log ("Pup");
         GameObject instalingMine = Instantiate (MineTrap, position, Quaternion.identity);

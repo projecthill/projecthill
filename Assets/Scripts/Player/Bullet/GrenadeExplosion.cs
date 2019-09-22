@@ -7,13 +7,20 @@ public class GrenadeExplosion : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
-        Destroy (gameObject.GetComponent<CircleCollider2D>(), 0.3f);
-        Destroy (gameObject, 0.5f);
+        Destroy(gameObject.GetComponent<CircleCollider2D>(), 0.3f);
+        Destroy(gameObject, 0.5f);
     }
 
     // Update is called once per frame
     void Update(){
-        
+
     }
 
+    void OnTriggerEnter2D(Collider2D other){
+        if (gameObject.CompareTag("GrenadeExplosion") && other.CompareTag("Enemy")){
+            other.gameObject.GetComponent<EnemyParent>().TakeDamage(2);
+        }else if (gameObject.CompareTag("RPGExplosion") && other.CompareTag("Enemy")){
+            other.gameObject.GetComponent<EnemyParent>().TakeDamage(3);
+        }
+    }
 }
