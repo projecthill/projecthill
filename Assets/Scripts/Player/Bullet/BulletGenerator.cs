@@ -111,7 +111,27 @@ public class BulletGenerator : MonoBehaviour{
                 CDs[0] = 1;
                 StartCoroutine(Burst());
             }
-            
+            if (ActiveCDs[1] == false && withGrenadeLauncher == true){
+                ActiveCDs[1] = true;
+                CDs[1] = 1.5f;
+                StartCoroutine(Burst());
+            }
+            if (ActiveCDs[2] == false && withRPG == true){
+                ActiveCDs[2] = true;
+                CDs[2] = 2;
+                StartCoroutine(Burst());
+            }
+            if (ActiveCDs[3] == false && withTrapLauncher == true){
+                ActiveCDs[3] = true;
+                CDs[3] = 2;
+                StartCoroutine(Burst());
+            }
+            if (ActiveCDs[4] == false && withRayxor == true){
+                ActiveCDs[4] = true;
+                CDs[4] = 4;
+                StartCoroutine(Burst());
+            }
+
         }
 
         if (CDs[0] > 0) {
@@ -122,6 +142,43 @@ public class BulletGenerator : MonoBehaviour{
                 ActiveCDs[0] = false;
             }
         }
+
+        if (CDs[1] > 0){
+            CDs[1] -= Time.deltaTime;
+        }else if (CDs[1] < 0){
+            CDs[1] = 0;
+            if (CDs[0] == 0){
+                ActiveCDs[1] = false;
+            }
+        }
+
+        if (CDs[2] > 0){
+            CDs[2] -= Time.deltaTime;
+        }else if (CDs[2] < 0){
+            CDs[2] = 0;
+            if (CDs[3] == 0){
+                ActiveCDs[2] = false;
+            }
+        }
+
+        if (CDs[3] > 0){
+            CDs[3] -= Time.deltaTime;
+        }else if (CDs[3] < 0){
+            CDs[3] = 0;
+            if (CDs[3] == 0){
+                ActiveCDs[3] = false;
+            }
+        }
+
+        if (CDs[4] > 0){
+            CDs[4] -= Time.deltaTime;
+        }else if (CDs[0] < 0){
+            CDs[4] = 0;
+            if (CDs[4] == 0){
+                ActiveCDs[4] = false;
+            }
+        }
+
     }
 
 
