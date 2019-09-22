@@ -100,6 +100,8 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   ExplosionPrefab: {fileID: 6263081727224474032, guid: 49fe097a6de34be4d9d42db6189b31fc,
     type: 3}
+  GrenadeExplosionPrefab: {fileID: 298113314572408150, guid: 0321dc818bfb6f9488dd78293353cae6,
+    type: 3}
   MineTrap: {fileID: 3526413091986634442, guid: fa89965eba77ac944aef6bfdbbbfa959,
     type: 3}
 --- !u!58 &2707278785495036140
