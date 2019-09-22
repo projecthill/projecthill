@@ -147,7 +147,7 @@ public class BulletGenerator : MonoBehaviour{
             CDs[1] -= Time.deltaTime;
         }else if (CDs[1] < 0){
             CDs[1] = 0;
-            if (CDs[0] == 0){
+            if (CDs[1] == 0){
                 ActiveCDs[1] = false;
             }
         }
@@ -156,7 +156,7 @@ public class BulletGenerator : MonoBehaviour{
             CDs[2] -= Time.deltaTime;
         }else if (CDs[2] < 0){
             CDs[2] = 0;
-            if (CDs[3] == 0){
+            if (CDs[2] == 0){
                 ActiveCDs[2] = false;
             }
         }
@@ -172,7 +172,7 @@ public class BulletGenerator : MonoBehaviour{
 
         if (CDs[4] > 0){
             CDs[4] -= Time.deltaTime;
-        }else if (CDs[0] < 0){
+        }else if (CDs[4] < 0){
             CDs[4] = 0;
             if (CDs[4] == 0){
                 ActiveCDs[4] = false;
