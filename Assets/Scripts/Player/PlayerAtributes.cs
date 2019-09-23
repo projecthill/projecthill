@@ -7,7 +7,7 @@ public class PlayerAtributes : MonoBehaviour{
 
     // Atributos por ser manipulados por progresión del juego
     public static int playerHealth = 20;
-    public int money = 0;
+    public static int money = 0;
 
     GameObject enemy;
     EnemyParent damage;
@@ -31,33 +31,15 @@ public class PlayerAtributes : MonoBehaviour{
     void Update()
     {
         if (healthUI) healthUI.text = "Vida: " + playerHealth;
-        if (moneyUI) moneyUI.text = "Dinero: " + money;
+        if (moneyUI) moneyUI.text = "Dinero: $" + money;
         if (TimeUI) TimeUI.text = "Tiempo: " + (int) currentBar.progress;
 
     }
 
-    void OnTriggerEnter2D(Collider2D other) //Detecta colisión con enemigo
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            DamagePlayer();
-            Debug.Log("A la torre le queda " + playerHealth + " de vida");
-        }
-    }
+   
 
-    public void DamagePlayer() //se reduce la vida de la torre en la cantidad del daño del enemigo
-    {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
-        damage = enemy.GetComponent<EnemyParent>();
-        playerHealth -= damage.enemyDamage;
-    }
+   
 
-    public void GainMoney() //incrementa el dinero del player en el valor de dinero del enemigo destruído
-    {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
-        enemyValue = enemy.GetComponent<EnemyParent>();
-        money += enemyValue.enemyValue;
-    }
-  
+     
 
 }

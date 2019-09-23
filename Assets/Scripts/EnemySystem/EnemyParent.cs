@@ -29,6 +29,7 @@ public class EnemyParent : MonoBehaviour
     {
         if (other.CompareTag("Turret"))
         {
+            PlayerAtributes.playerHealth -= enemyDamage;
             Debug.Log("La torre recibió daño");
             Explode();
         }
@@ -44,7 +45,7 @@ public class EnemyParent : MonoBehaviour
         if (health <= 0)
         {
             Explode();
-            
+            PlayerAtributes.money += enemyValue;
         }    
     }
 
