@@ -232,17 +232,16 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 6
     m_MaxSize: 60
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "CREDITS\n\n\n\n\n\n\nProgramming\n\n\nProfessor\nHilble Essenwanger\n\nGabriel
-    Alvarado (Senchi3)\nRonaldo Beltr\xE1n (iTz)\nSebasti\xE1n Garc\xEDa\nRomarco
-    Pulido\nDiego Heredia\n\n\n\n\n\n\nArt\n\n\nProfessor\nAldo Santiv\xE1\xF1ez\n\nJos\xE9
-    Ferrer\nWilson P\xE9rez\nDaniel Seminario\n\nMusic from www.bensound.com\n\n\n\n\n\n\nThank
-    you!"
+    Alvarado\nRonaldo Beltr\xE1n\nSebasti\xE1n Garc\xEDa\nRomarco Pulido\nDiego Heredia\n\n\n\n\n\n\nArt\n\n\nProfessor\nAldo
+    Santiv\xE1\xF1ez\n\nJos\xE9 Ferrer\nWilson P\xE9rez\nDaniel Seminario\n\nMusic
+    from www.bensound.com\n\n\n\n\n\n\nThank you!"
 --- !u!222 &593700690
 CanvasRenderer:
   m_ObjectHideFlags: 0
