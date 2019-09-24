@@ -20,6 +20,7 @@ public class BulletGenerator : MonoBehaviour{
     public bool withRayxor;
 
     public bool isRayxoring;
+    public bool isShooting;
 
     public List<float> CDs;
     public List<bool> ActiveCDs;
@@ -54,48 +55,50 @@ public class BulletGenerator : MonoBehaviour{
     // Update is called once per frame
     void Update (){
 
-        
+
 
         //permite cambiar de armas
-        if (!isRayxoring) {
-            if (Input.GetKeyDown (KeyCode.Alpha1)) {
-                
-                withNormalWeapon = true;
-                withGrenadeLauncher = false;
-                withRPG = false;
-                withTrapLauncher = false;
-                withRayxor = false;
-            }
-            if (Input.GetKeyDown (KeyCode.Alpha2)) {
-               
-                withNormalWeapon = false;
-                withGrenadeLauncher = true;
-                withRPG = false;
-                withTrapLauncher = false;
-                withRayxor = false;
-            }
-            if (Input.GetKeyDown (KeyCode.Alpha3)) {
-                
-                withNormalWeapon = false;
-                withGrenadeLauncher = false;
-                withRPG = true;
-                withTrapLauncher = false;
-                withRayxor = false;
-            }
-            if (Input.GetKeyDown (KeyCode.Alpha4)) {
-                
-                withNormalWeapon = false;
-                withGrenadeLauncher = false;
-                withRPG = false;
-                withTrapLauncher = true;
-                withRayxor = false;
-            }
-            if (Input.GetKeyDown (KeyCode.Alpha5)) { 
-                withNormalWeapon = false;
-                withGrenadeLauncher = false;
-                withRPG = false;
-                withTrapLauncher = false;
-                withRayxor = true; 
+        if (!isShooting){
+            if (!isRayxoring){
+                if (Input.GetKeyDown(KeyCode.Alpha1)){
+
+                    withNormalWeapon = true;
+                    withGrenadeLauncher = false;
+                    withRPG = false;
+                    withTrapLauncher = false;
+                    withRayxor = false;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha2)){
+
+                    withNormalWeapon = false;
+                    withGrenadeLauncher = true;
+                    withRPG = false;
+                    withTrapLauncher = false;
+                    withRayxor = false;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha3)){
+
+                    withNormalWeapon = false;
+                    withGrenadeLauncher = false;
+                    withRPG = true;
+                    withTrapLauncher = false;
+                    withRayxor = false;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha4)){
+
+                    withNormalWeapon = false;
+                    withGrenadeLauncher = false;
+                    withRPG = false;
+                    withTrapLauncher = true;
+                    withRayxor = false;
+                }
+                if (Input.GetKeyDown(KeyCode.Alpha5)){
+                    withNormalWeapon = false;
+                    withGrenadeLauncher = false;
+                    withRPG = false;
+                    withTrapLauncher = false;
+                    withRayxor = true;
+                }
             }
         }
 
@@ -191,6 +194,7 @@ public class BulletGenerator : MonoBehaviour{
         bullet.GetComponent<LinealBullet> ().speed = 12.5f;
         bullet.GetComponent<SpriteRenderer> ().sprite = bulletSprites[0];
         bullet.tag = "NormalBullet";
+        isShooting = true;
         
     }
     void GenerateGrenadeBullet (){
@@ -257,6 +261,7 @@ public class BulletGenerator : MonoBehaviour{
             GenerateNormalBullet();
             yield return new WaitForSeconds(BulletSpace);
             GenerateNormalBullet();
+            isShooting = false;
         }
         if (withGrenadeLauncher == true){
             GenerateGrenadeBullet();
