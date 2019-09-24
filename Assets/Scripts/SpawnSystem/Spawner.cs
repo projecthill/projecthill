@@ -17,8 +17,7 @@ public class Spawner : MonoBehaviour
     public float currentDelta;
     public float variantTimer;
 
-    float uiTimer;
-    public Text textBox;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +39,7 @@ public class Spawner : MonoBehaviour
     {
         currentTimer += Time.deltaTime; //currentTimer aumenta en Time.deltaTime
         ResetTimer(SpawnEntity);
-        UpdateUIValues();
+        
     }
 
     void ResetTimer(Action action) //resetea el timer a 0 al empezar cada wave
@@ -62,22 +61,10 @@ public class Spawner : MonoBehaviour
         currentDelta = wave.timeDelta;
         variantTimer = wave.timer;
 
-        uiTimer = spawnDelay;
+        
     }
 
-    void UpdateUIValues ()
-    {
-        
-        if (uiTimer <= 0)
-        {
-            uiTimer = 0;
-            textBox.text = "Waiting for current wave...";
-        } else
-        {
-            uiTimer -= Time.deltaTime;
-            textBox.text = "Next wave starts in: " + Mathf.Round(uiTimer).ToString();
-        }
-    }
+   
 
     void ParseData (string textData)
     {
