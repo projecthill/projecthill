@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
         if (PlayerAtributes.playerHealth <= 0) {
             EndGame ();
+            
         }
     }
 
@@ -35,6 +37,11 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
         completeLevelUI.SetActive (true);
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
