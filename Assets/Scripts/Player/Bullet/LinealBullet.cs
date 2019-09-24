@@ -42,7 +42,7 @@ public class LinealBullet : MonoBehaviour{
                     enemy.TakeDamage (1);
                     break;
                 case "RPG":
-                    enemy.TakeDamage (20);
+                    enemy.TakeDamage (5);
                     break;
                 case "TrapBullet":
                     enemy.TakeDamage(1);

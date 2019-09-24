@@ -96,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0.026255846, y: 0.44774014}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 1}
+  m_Size: {x: 3.9520144, y: 0.8954803}
   m_EdgeRadius: 0
 --- !u!114 &156629286179934797
 MonoBehaviour:
@@ -127,6 +127,7 @@ MonoBehaviour:
   position: {x: 0, y: 0}
   ExplosionPrefab: {fileID: 6263081727224474032, guid: 49fe097a6de34be4d9d42db6189b31fc,
     type: 3}
+  GrenadeExplosionPrefab: {fileID: 0}
   MineTrap: {fileID: 3526413091986634442, guid: fa89965eba77ac944aef6bfdbbbfa959,
     type: 3}
 --- !u!95 &5976817787690432798

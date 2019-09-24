@@ -16,11 +16,11 @@ public class GrenadeExplosion : MonoBehaviour{
 
     }
 
-    void OnTriggerEnter2D(Collider2D other){
+    void OnTriggerStay2D(Collider2D other){
         if (gameObject.CompareTag("GrenadeExplosion") && other.CompareTag("Enemy")){
-            other.gameObject.GetComponent<EnemyParent>().TakeDamage(2);
+            other.gameObject.GetComponent<EnemyParent>().TakeDamage(1);
         }else if (gameObject.CompareTag("RPGExplosion") && other.CompareTag("Enemy")){
-            other.gameObject.GetComponent<EnemyParent>().TakeDamage(3);
+            other.gameObject.GetComponent<EnemyParent>().TakeDamage(2);
         }
     }
 }
