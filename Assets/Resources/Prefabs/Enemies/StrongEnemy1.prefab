@@ -161,5 +161,5 @@ MonoBehaviour:
   explosion: {fileID: 6652694832407971073, guid: 90dacc8848b963f468fdbde988c3a07b,
     type: 3}
   pathPoints:
-  - {x: 8, y: -3.2, z: 0}
-  - {x: -5, y: -3.2, z: 0}
+  - {x: 8, y: -2.8, z: 0}
+  - {x: -5, y: -2.8, z: 0}
