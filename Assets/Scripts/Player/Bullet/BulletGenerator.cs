@@ -61,43 +61,64 @@ public class BulletGenerator : MonoBehaviour{
         if (!isShooting){
             if (!isRayxoring){
                 if (Input.GetKeyDown(KeyCode.Alpha1)){
-
-                    withNormalWeapon = true;
-                    withGrenadeLauncher = false;
-                    withRPG = false;
-                    withTrapLauncher = false;
-                    withRayxor = false;
+                    
+                        withNormalWeapon = true;
+                        withGrenadeLauncher = false;
+                        withRPG = false;
+                        withTrapLauncher = false;
+                        withRayxor = false;
+                    
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2)){
+                if (StoreWeapons.Unlock2 == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha2))
+                    {
 
-                    withNormalWeapon = false;
-                    withGrenadeLauncher = true;
-                    withRPG = false;
-                    withTrapLauncher = false;
-                    withRayxor = false;
+                        {
+                            withNormalWeapon = false;
+                            withGrenadeLauncher = true;
+                            withRPG = false;
+                            withTrapLauncher = false;
+                            withRayxor = false;
+                        }
+                    }
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha3)){
 
-                    withNormalWeapon = false;
-                    withGrenadeLauncher = false;
-                    withRPG = true;
-                    withTrapLauncher = false;
-                    withRayxor = false;
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha4)){
+                if (StoreWeapons.Unlock3 == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha3))
+                    {
 
-                    withNormalWeapon = false;
-                    withGrenadeLauncher = false;
-                    withRPG = false;
-                    withTrapLauncher = true;
-                    withRayxor = false;
+                        withNormalWeapon = false;
+                        withGrenadeLauncher = false;
+                        withRPG = true;
+                        withTrapLauncher = false;
+                        withRayxor = false;
+                    }
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha5)){
-                    withNormalWeapon = false;
-                    withGrenadeLauncher = false;
-                    withRPG = false;
-                    withTrapLauncher = false;
-                    withRayxor = true;
+
+                if (StoreWeapons.Unlock4 == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha4))
+                    {
+
+                        withNormalWeapon = false;
+                        withGrenadeLauncher = false;
+                        withRPG = false;
+                        withTrapLauncher = true;
+                        withRayxor = false;
+                    }
+                }
+                if (StoreWeapons.Unlock5 == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Alpha5))
+                    {
+                        withNormalWeapon = false;
+                        withGrenadeLauncher = false;
+                        withRPG = false;
+                        withTrapLauncher = false;
+                        withRayxor = true;
+                    }
                 }
             }
         }

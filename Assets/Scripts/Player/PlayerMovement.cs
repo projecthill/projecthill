@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour{
 
+    public GameObject Panel;
+
     public float speed = 0;
 
     public List<Sprite> CanonSprites;
@@ -29,6 +31,16 @@ public class PlayerMovement : MonoBehaviour{
             gameObject.GetComponent<SpriteRenderer> ().sprite = CanonSprites[3];
         } else if (Input.GetKeyDown (KeyCode.Alpha5)) {
             gameObject.GetComponent<SpriteRenderer> ().sprite = CanonSprites[4];
+        }
+
+        if (Input.GetKeyDown(KeyCode.T)){
+            if (Panel != null){
+                bool isActive = Panel.activeSelf;
+
+                Panel.SetActive(!isActive);
+
+                Time.timeScale = (!isActive) ? 0 : 1;
+            }
         }
 
         //Debug.Log (transform.rotation.z);

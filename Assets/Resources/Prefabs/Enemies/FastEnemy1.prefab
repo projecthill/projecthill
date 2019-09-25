@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   enemyDirection: 1
-  enemySpeed: 5
+  enemySpeed: 2.34
   enemyDamage: 2
   enemyValue: 3
   explosion: {fileID: 6652694832407971073, guid: 90dacc8848b963f468fdbde988c3a07b,
